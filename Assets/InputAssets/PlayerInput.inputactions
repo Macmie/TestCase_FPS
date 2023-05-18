@@ -2,7 +2,7 @@
     "name": "PlayerInput",
     "maps": [
         {
-            "name": "Actions",
+            "name": "PlayerControlls",
             "id": "a3f2a880-2f55-4560-8668-983f03438567",
             "actions": [
                 {
@@ -156,7 +156,7 @@
                 {
                     "name": "",
                     "id": "ba8185e2-64e0-4d12-a453-e90dd84ba855",
-                    "path": "<Mouse>/position",
+                    "path": "<Mouse>/delta",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -165,59 +165,15 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "RightStick",
-                    "id": "082689cc-895d-4030-ab0b-ce7396cd19b1",
-                    "path": "2DVector",
+                    "name": "",
+                    "id": "8d5e9f7e-4900-4c64-a606-6d0f2f860295",
+                    "path": "<Gamepad>/rightStick",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "LookingAround",
-                    "isComposite": true,
+                    "isComposite": false,
                     "isPartOfComposite": false
-                },
-                {
-                    "name": "up",
-                    "id": "0564d75e-59de-4b19-8ace-9e149cfe7ac1",
-                    "path": "<Gamepad>/rightStick/up",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "LookingAround",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "down",
-                    "id": "9b0d4839-435a-44ac-a34f-f8f394f72a68",
-                    "path": "<Gamepad>/rightStick/down",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "LookingAround",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "left",
-                    "id": "8436ab50-2b04-4481-8b0d-26177f354f8b",
-                    "path": "<Gamepad>/rightStick/left",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "LookingAround",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "right",
-                    "id": "b2008654-19ad-49b0-809a-c61c219d549a",
-                    "path": "<Gamepad>/rightStick/right",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "LookingAround",
-                    "isComposite": false,
-                    "isPartOfComposite": true
                 },
                 {
                     "name": "",
