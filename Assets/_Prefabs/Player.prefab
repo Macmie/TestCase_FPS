@@ -177,9 +177,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5694852041968883073}
   - component: {fileID: 371036435}
-  - component: {fileID: 371036433}
-  - component: {fileID: 371036434}
-  - component: {fileID: 371036436}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -222,48 +219,3 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: -0.6, z: 0}
---- !u!114 &371036433
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2657391606688902672}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 747ab99d0500b8245897b5d5b6a6d021, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _characterController: {fileID: 371036435}
-  _playerSpeed: 2
---- !u!114 &371036434
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2657391606688902672}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94b25b132121aa640b93ad6a8efd38ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _movementController: {fileID: 371036433}
-  _lookAroundController: {fileID: 371036436}
---- !u!114 &371036436
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2657391606688902672}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6bca8be75881e643bc252f926ca316f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _FPVCamera: {fileID: 963194227}
-  xRotationSpeed: 10
-  yRotationSpeed: 10
-  xRotationMin: -70
-  xRotationMax: 70
