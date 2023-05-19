@@ -250,8 +250,10 @@ GameObject:
   - component: {fileID: 5694852041968883073}
   - component: {fileID: 7975022452910169726}
   - component: {fileID: 6277720966499163408}
-  - component: {fileID: 6703483278045273725}
+  - component: {fileID: 680381864347280807}
   - component: {fileID: 9036035040948046126}
+  - component: {fileID: 6703483278045273725}
+  - component: {fileID: 8290798104618175345}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -307,7 +309,7 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &6703483278045273725
+--- !u!114 &680381864347280807
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -316,16 +318,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2657391606688902672}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51c1089be8e286043a9e3ae141eb1b86, type: 3}
+  m_Script: {fileID: 11500000, guid: 4c09f6c3f49b2674cac4e72d54afd6fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rb: {fileID: 7975022452910169726}
-  _cameraHolder: {fileID: 6173375326938781598}
-  _speed: 9
-  _sensivity: 0.1
-  _maxForce: 1
-  _maxYLookAngle: 70
-  _jumpForce: 4
+  _playerMovement: {fileID: 6703483278045273725}
+  _playerShooting: {fileID: 8290798104618175345}
 --- !u!114 &9036035040948046126
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -353,8 +350,8 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6703483278045273725}
-        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
+      - m_Target: {fileID: 680381864347280807}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
         m_MethodName: OnMove
         m_Mode: 0
         m_Arguments:
@@ -369,8 +366,8 @@ MonoBehaviour:
     m_ActionName: Player/Move[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6703483278045273725}
-        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
+      - m_Target: {fileID: 680381864347280807}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
         m_MethodName: OnLook
         m_Mode: 0
         m_Arguments:
@@ -429,8 +426,8 @@ MonoBehaviour:
     m_ActionName: UI/TrackedDeviceOrientation
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6703483278045273725}
-        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
+      - m_Target: {fileID: 680381864347280807}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
         m_MethodName: OnJump
         m_Mode: 0
         m_Arguments:
@@ -448,6 +445,37 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &6703483278045273725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2657391606688902672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51c1089be8e286043a9e3ae141eb1b86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rb: {fileID: 7975022452910169726}
+  _cameraHolder: {fileID: 6173375326938781598}
+  _speed: 9
+  _sensivity: 0.1
+  _maxForce: 1
+  _maxYLookAngle: 70
+  _jumpForce: 4
+--- !u!114 &8290798104618175345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2657391606688902672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0eef6929a1480fa4889650fb1e6384f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6173375326938781598
 GameObject:
   m_ObjectHideFlags: 0
