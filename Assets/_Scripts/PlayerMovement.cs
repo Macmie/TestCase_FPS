@@ -14,19 +14,19 @@ public class PlayerMovement : MonoBehaviour
     private float _lookRotation;
     private bool _isGrounded = true;
 
-    public void OnMove(InputAction.CallbackContext context) => _movementVector = context.ReadValue<Vector2>();
+    public void Move(Vector2 movementVector) => _movementVector = movementVector;
 
-    public void OnLook(InputAction.CallbackContext context) => _lookVector = context.ReadValue<Vector2>();
+    public void Look(Vector2 lookVector) => _lookVector = lookVector;
 
-    public void OnJump(InputAction.CallbackContext context)
+    public void Jump(InputAction.CallbackContext context)
     {
         if (context.phase == InputActionPhase.Started && _isGrounded)
         Jump();
     }
 
-    private void Awake()
+    public void SetIfGrounded(bool isGrounded)
     {
-        Cursor.lockState = CursorLockMode.Locked;
+        _isGrounded = isGrounded;
     }
 
     private void FixedUpdate()
@@ -55,11 +55,6 @@ public class PlayerMovement : MonoBehaviour
         _rb.AddForce(velocityChange, ForceMode.VelocityChange);
     }
 
-    public void SetIfGrounded(bool isGrounded)
-    {
-        _isGrounded = isGrounded;
-    }
-
     private void ProcessLooking()
     {
         transform.Rotate(Vector3.up * _lookVector.x * _sensivity);
@@ -74,6 +69,4 @@ public class PlayerMovement : MonoBehaviour
         _rb.AddForce(Vector3.up * _jumpForce, ForceMode.Impulse);
         SetIfGrounded(false);
     }
-
-
 }
