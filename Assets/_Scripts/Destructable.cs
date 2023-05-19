@@ -1,18 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+using System;
+
+public enum Material {Concrete, Wood, Iron}
 
 public class Destructable : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public UnityEvent OnDestroy;
+    [SerializeField] private Material _material;
+    [SerializeField] private int _durability;
 
-    // Update is called once per frame
-    void Update()
+    public void TakeDamage(int dmg)
     {
-        
+        _durability -= dmg;
+        if (_durability <= 0)
+            OnDestroy?.Invoke();
     }
 }
