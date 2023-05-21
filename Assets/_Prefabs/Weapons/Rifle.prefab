@@ -50,6 +50,7 @@ MonoBehaviour:
   _damage: 2
   _shootSpread: {x: 0, y: 0, z: 0}
   _burstEffect: {fileID: 1503081175632218052}
+  _impactEffect: {fileID: 6182220454088557888, guid: c1defbe41221b1a4982b8c263ed2e8b3, type: 3}
   _layerMask:
     serializedVersion: 2
     m_Bits: 8

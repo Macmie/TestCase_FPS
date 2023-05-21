@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-    [SerializeField] private Material _materialsToImpact;
+    [SerializeField] private ItemMaterial _materialsToImpact;
     [SerializeField] private int _damage;
     [SerializeField] private Vector3 _shootSpread;
     [SerializeField] private ParticleSystem _burstEffect;
+    [SerializeField] private ParticleSystem _impactEffect;
+    [SerializeField] Camera _mainCamera;
     [SerializeField] private LayerMask _layerMask;
 
     private int _mask;
@@ -23,15 +25,33 @@ public class Weapon : MonoBehaviour
         Debug.Log($"Shoot {gameObject.name}");
         _burstEffect.Play();
         Vector3 spread = GetSpread();
-        Ray ray = new Ray(_burstEffect.transform.position, _burstEffect.transform.forward + spread);
+        Vector3 shootDir = (_burstEffect.transform.forward + spread).normalized;
+        Ray ray = _mainCamera.ScreenPointToRay(new Vector3 (Screen.width / 2, Screen.height / 2, 0));
         if (Physics.Raycast(ray, out RaycastHit hitInfo, _mask))
         {
             Debug.Log($"Hit {hitInfo.collider.name}");
-            hitInfo.collider.TryGetComponent(out Destructable destructable);
-            if (destructable == null) return;
 
-            MakeDamage(destructable);
+            hitInfo.collider.TryGetComponent(out Destructable destructable);
+            if (destructable != null)
+            {
+                MakeDamage(destructable, _materialsToImpact);
+                Color color = destructable.GetColor();
+                PlayImpactEffect(shootDir, hitInfo, color);
+                return;
+            }
+            PlayImpactEffect(shootDir, hitInfo, default);
         }
+    }
+
+    private void PlayImpactEffect(Vector3 shootDir, RaycastHit hitInfo, Color color)
+    {
+        Vector3 incomingVec = hitInfo.point - _mainCamera.transform.position;
+        Vector3 reflectVec = Vector3.Reflect(incomingVec, hitInfo.normal);
+
+        ParticleSystem impact = Instantiate(_impactEffect, hitInfo.point, Quaternion.FromToRotation(Vector3.up, reflectVec));
+        ParticleSystemRenderer render = impact.GetComponent<ParticleSystemRenderer>();
+        render.material.color = color != default ? color : render.material.color;
+        impact.Play();
     }
 
     private Vector3 GetSpread()
@@ -43,10 +63,8 @@ public class Weapon : MonoBehaviour
         return new Vector3(x, y, z);
     }
 
-    private void MakeDamage(Destructable destructable)
+    private void MakeDamage(Destructable destructable, ItemMaterial material)
     {
-        destructable.TakeDamage(_damage);
-
-        //TODO HitImpact Effect
+        destructable.TakeDamage(_damage, material);
     }
 }
