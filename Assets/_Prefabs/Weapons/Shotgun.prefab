@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7365829150077282513}
   - component: {fileID: -2652084742960863109}
+  - component: {fileID: 8272484141859863278}
   m_Layer: 3
   m_Name: Shotgun
   m_TagString: Untagged
@@ -51,9 +52,33 @@ MonoBehaviour:
   _shootSpread: {x: 0, y: 0, z: 0}
   _burstEffect: {fileID: 6891411890723812356}
   _impactEffect: {fileID: 6182220454088557888, guid: c1defbe41221b1a4982b8c263ed2e8b3, type: 3}
+  _mainCamera: {fileID: 0}
   _layerMask:
     serializedVersion: 2
     m_Bits: 8
+  _animator: {fileID: 8272484141859863278}
+  IsInTransition: 0
+--- !u!95 &8272484141859863278
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5613122962516295080}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: eb2ccb84a0e2d664e86242116f321251, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &6286619679968643080
 PrefabInstance:
   m_ObjectHideFlags: 0

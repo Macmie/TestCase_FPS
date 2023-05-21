@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1665138812867690606}
   - component: {fileID: 7481442807534240667}
+  - component: {fileID: 7675516928994110380}
   m_Layer: 3
   m_Name: Pistol
   m_TagString: Untagged
@@ -51,9 +52,33 @@ MonoBehaviour:
   _shootSpread: {x: 0, y: 0, z: 0}
   _burstEffect: {fileID: 4800510653992255857}
   _impactEffect: {fileID: 6182220454088557888, guid: c1defbe41221b1a4982b8c263ed2e8b3, type: 3}
+  _mainCamera: {fileID: 0}
   _layerMask:
     serializedVersion: 2
     m_Bits: 8
+  _animator: {fileID: 7675516928994110380}
+  IsInTransition: 0
+--- !u!95 &7675516928994110380
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1079592717108077166}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fb95fa8302be8ea42b7ea4f1637ff26e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &5184157151513424368
 PrefabInstance:
   m_ObjectHideFlags: 0

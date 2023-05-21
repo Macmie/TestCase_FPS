@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Weapon : MonoBehaviour
 {
@@ -11,17 +12,38 @@ public class Weapon : MonoBehaviour
     [SerializeField] private ParticleSystem _impactEffect;
     [SerializeField] Camera _mainCamera;
     [SerializeField] private LayerMask _layerMask;
+    [SerializeField] Animator _animator;
 
+    public UnityAction HideAction;
+    public bool IsInTransition;
     private int _mask;
+
+
+
+    private void OnEnable()
+    {
+        IsInTransition = true;
+    }
+
+    private void OnHidden()
+    {
+        gameObject.SetActive(false);
+    }
 
     private void Awake()
     {
         _mask = 1 << _layerMask.value;
     }
 
+    public void HideGun()
+    {
+        _animator.SetTrigger("Hide");
+        Debug.Log("Start Gun Hiding");
+    }
+
     public void Shoot(bool shoot)
     {
-        if (!shoot) return;
+        if (!shoot || IsInTransition) return;
         Debug.Log($"Shoot {gameObject.name}");
         _burstEffect.Play();
         Vector3 spread = GetSpread();
@@ -43,6 +65,7 @@ public class Weapon : MonoBehaviour
         }
     }
 
+
     private void PlayImpactEffect(Vector3 shootDir, RaycastHit hitInfo, Color color)
     {
         Vector3 incomingVec = hitInfo.point - _mainCamera.transform.position;
@@ -62,6 +85,8 @@ public class Weapon : MonoBehaviour
 
         return new Vector3(x, y, z);
     }
+
+    public void EnableWeapon(bool enable) => gameObject.SetActive(enable);
 
     private void MakeDamage(Destructable destructable, ItemMaterial material)
     {
