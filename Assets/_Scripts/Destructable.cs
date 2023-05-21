@@ -16,6 +16,12 @@ public class Destructable : MonoBehaviour
     {
         _durability -= dmg;
         if (_durability <= 0)
-            OnDestroy?.Invoke();
+            ObjectDestroy();
+    }
+
+    private void ObjectDestroy()
+    {
+        OnDestroy?.Invoke();
+        Destroy(gameObject);
     }
 }

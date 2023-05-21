@@ -4,15 +4,10 @@ using UnityEngine;
 
 public class PlayerShooting : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    private Weapon _activeWeapon;
+
+    public void SetActiveWeapon(Weapon weapon) => _activeWeapon = weapon;
+
+    public void Shoot(bool shoot) => _activeWeapon.Shoot(shoot);
 }
