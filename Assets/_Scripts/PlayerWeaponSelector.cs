@@ -42,18 +42,15 @@ public class PlayerWeaponSelector : MonoBehaviour
     IEnumerator SetWeapon(int index)
     {
         _isChanging = true;
-        var prevGun = _weaponList[_activeWeaponIndex];
+        Weapon prevGun = _weaponList[_activeWeaponIndex];
         if (prevGun.gameObject.activeInHierarchy)
         {
             prevGun.HideGun();
-            Debug.Log("Hiding");
             while (prevGun.gameObject.activeInHierarchy)
                 yield return null;
-            //prevGun.gameObject.SetActive(false);
         }
-        Debug.Log($"Set active weapon to {_weaponList[index].gameObject.name}");
 
-        var newGun = _weaponList[index];
+        Weapon newGun = _weaponList[index];
         newGun.gameObject.SetActive(true);
         while (newGun.IsInTransition)
             yield return null;
@@ -61,6 +58,5 @@ public class PlayerWeaponSelector : MonoBehaviour
         _playerShooting.SetActiveWeapon(newGun);
         _activeWeaponIndex = index;
         _isChanging = false;
-        Debug.Log("Finished changing");
     }
 }

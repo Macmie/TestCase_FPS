@@ -18,56 +18,42 @@ public class Weapon : MonoBehaviour
     public bool IsInTransition;
     private int _mask;
 
+    private void Awake() => _mask = 1 << _layerMask.value;
 
+    private void OnEnable() => IsInTransition = true;
 
-    private void OnEnable()
-    {
-        IsInTransition = true;
-    }
+    private void OnHidden() => gameObject.SetActive(false);
 
-    private void OnHidden()
-    {
-        Debug.Log($"Hiding {gameObject.name}");
-        gameObject.SetActive(false);
-    }
-
-    private void Awake()
-    {
-        _mask = 1 << _layerMask.value;
-    }
-
-    public void HideGun()
-    {
-        _animator.SetTrigger("Hide");
-        Debug.Log($"Start Hiding {gameObject.name}");
-    }
+    public void HideGun() => _animator.SetTrigger("Hide");
 
     public void Shoot(bool shoot)
     {
         if (!shoot || IsInTransition) return;
-        Debug.Log($"Shoot {gameObject.name}");
+
+        Debug.Log($"Shoot {gameObject.name}, is in transition: {IsInTransition}");
         _burstEffect.Play();
+
+        //To delete if not using spread
         Vector3 spread = GetSpread();
         Vector3 shootDir = (_burstEffect.transform.forward + spread).normalized;
+        //
+
         Ray ray = _mainCamera.ScreenPointToRay(new Vector3 (Screen.width / 2, Screen.height / 2, 0));
         if (Physics.Raycast(ray, out RaycastHit hitInfo, _mask))
         {
-            Debug.Log($"Hit {hitInfo.collider.name}");
-
             hitInfo.collider.TryGetComponent(out Destructable destructable);
             if (destructable != null)
             {
                 MakeDamage(destructable, _materialsToImpact);
                 Color color = destructable.GetColor();
-                PlayImpactEffect(shootDir, hitInfo, color);
+                PlayImpactEffect(hitInfo, color);
                 return;
             }
-            PlayImpactEffect(shootDir, hitInfo, default);
+            PlayImpactEffect(hitInfo, default);
         }
     }
 
-
-    private void PlayImpactEffect(Vector3 shootDir, RaycastHit hitInfo, Color color)
+    private void PlayImpactEffect(RaycastHit hitInfo, Color color)
     {
         Vector3 incomingVec = hitInfo.point - _mainCamera.transform.position;
         Vector3 reflectVec = Vector3.Reflect(incomingVec, hitInfo.normal);
@@ -78,6 +64,10 @@ public class Weapon : MonoBehaviour
         impact.Play();
     }
 
+    public void EnableWeapon(bool enable) => gameObject.SetActive(enable);
+
+    private void MakeDamage(Destructable destructable, ItemMaterial material) => destructable.TakeDamage(_damage, material);
+
     private Vector3 GetSpread()
     {
         float x = Random.Range(-_shootSpread.x, _shootSpread.x);
@@ -85,12 +75,5 @@ public class Weapon : MonoBehaviour
         float z = Random.Range(-_shootSpread.z, _shootSpread.z);
 
         return new Vector3(x, y, z);
-    }
-
-    public void EnableWeapon(bool enable) => gameObject.SetActive(enable);
-
-    private void MakeDamage(Destructable destructable, ItemMaterial material)
-    {
-        destructable.TakeDamage(_damage, material);
     }
 }
