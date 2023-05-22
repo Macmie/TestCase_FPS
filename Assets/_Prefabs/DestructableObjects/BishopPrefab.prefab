@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3785448942196976041}
   - component: {fileID: 8907856007750639620}
   - component: {fileID: 8978750750981734319}
+  - component: {fileID: -4371778907484100194}
   m_Layer: 0
   m_Name: BishopPrefab
   m_TagString: Untagged
@@ -50,6 +51,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   _material: 2
+  _objectRenderer: {fileID: 1538231612034576209}
   _durability: 5
 --- !u!136 &8978750750981734319
 CapsuleCollider:
@@ -62,9 +64,23 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.26
-  m_Height: 1.6007853
+  m_Height: 1.5157752
   m_Direction: 1
-  m_Center: {x: 0, y: 0.71578264, z: 0}
+  m_Center: {x: 0, y: 0.75828767, z: 0}
+--- !u!114 &-4371778907484100194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9051285925746227273}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 912b00742be465c4d950c58b5d3111bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _objectWithMaterial: {fileID: 8907856007750639620}
+  _materialsColors: {fileID: 11400000, guid: 6638cb3dd403e0a4fb796452bd63a7e6, type: 2}
 --- !u!1001 &1516493139065748123
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -125,5 +141,10 @@ PrefabInstance:
 --- !u!4 &1521026816763360785 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4626390214331530, guid: 1c0f2faf14460a5478057fd4e0575576, type: 3}
+  m_PrefabInstance: {fileID: 1516493139065748123}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &1538231612034576209 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 23450358156907978, guid: 1c0f2faf14460a5478057fd4e0575576, type: 3}
   m_PrefabInstance: {fileID: 1516493139065748123}
   m_PrefabAsset: {fileID: 0}

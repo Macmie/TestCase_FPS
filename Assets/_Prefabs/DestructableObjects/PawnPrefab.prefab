@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 101009631188130232}
   - component: {fileID: 1686786303202986152}
+  - component: {fileID: -1202288201346436109}
+  - component: {fileID: -6353011552071886042}
   m_Layer: 0
   m_Name: PawnPrefab
   m_TagString: Untagged
@@ -49,7 +51,36 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   _material: 1
+  _objectRenderer: {fileID: 3697292943066026633}
   _durability: 5
+--- !u!114 &-1202288201346436109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2292095103893858633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 912b00742be465c4d950c58b5d3111bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _objectWithMaterial: {fileID: 1686786303202986152}
+  _materialsColors: {fileID: 11400000, guid: 6638cb3dd403e0a4fb796452bd63a7e6, type: 2}
+--- !u!136 &-6353011552071886042
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2292095103893858633}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.26
+  m_Height: 1.2124872
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.60976386, z: 0}
 --- !u!1001 &3683139738808590501
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -110,5 +141,10 @@ PrefabInstance:
 --- !u!4 &3680316074047061419 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4010933918866702, guid: 391882f14be491c40962add653844907, type: 3}
+  m_PrefabInstance: {fileID: 3683139738808590501}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &3697292943066026633 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 23160403841118764, guid: 391882f14be491c40962add653844907, type: 3}
   m_PrefabInstance: {fileID: 3683139738808590501}
   m_PrefabAsset: {fileID: 0}

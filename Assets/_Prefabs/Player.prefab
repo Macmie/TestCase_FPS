@@ -295,7 +295,7 @@ GameObject:
   - component: {fileID: 5027940564530651761}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -744,6 +744,10 @@ PrefabInstance:
     - target: {fileID: 2634490486755525743, guid: e9e1900d50fec7642b1a07d9c64e9e0d, type: 3}
       propertyPath: m_Name
       value: Rifle
+      objectReference: {fileID: 0}
+    - target: {fileID: 2634490486755525743, guid: e9e1900d50fec7642b1a07d9c64e9e0d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5664305607542384383, guid: e9e1900d50fec7642b1a07d9c64e9e0d, type: 3}
       propertyPath: m_RootOrder

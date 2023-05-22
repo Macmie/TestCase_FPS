@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5664305607542384383}
   - component: {fileID: 4864422254514866841}
   - component: {fileID: 1814374429043132044}
+  - component: {fileID: -5121858154465327089}
   m_Layer: 3
   m_Name: Rifle
   m_TagString: Untagged
@@ -57,6 +58,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   _animator: {fileID: 1814374429043132044}
+  _objectRenderer: {fileID: 8710747519939204144}
   IsInTransition: 0
 --- !u!95 &1814374429043132044
 Animator:
@@ -79,6 +81,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-5121858154465327089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2634490486755525743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 912b00742be465c4d950c58b5d3111bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _objectWithMaterial: {fileID: 4864422254514866841}
+  _materialsColors: {fileID: 11400000, guid: 6638cb3dd403e0a4fb796452bd63a7e6, type: 2}
 --- !u!1001 &1275363302453507909
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -230,5 +246,10 @@ PrefabInstance:
 --- !u!4 &7541812400023449439 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 33269b2b610f4c245a712795c1927939, type: 3}
+  m_PrefabInstance: {fileID: 8008349110836250804}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &8710747519939204144 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: 33269b2b610f4c245a712795c1927939, type: 3}
   m_PrefabInstance: {fileID: 8008349110836250804}
   m_PrefabAsset: {fileID: 0}

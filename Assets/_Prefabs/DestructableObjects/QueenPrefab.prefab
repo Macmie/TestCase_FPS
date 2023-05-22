@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4728396759058610588}
   - component: {fileID: 6427673694779088755}
+  - component: {fileID: 4890568551692378042}
+  - component: {fileID: -5839700155422218735}
   m_Layer: 0
   m_Name: QueenPrefab
   m_TagString: Untagged
@@ -49,7 +51,36 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   _material: 0
+  _objectRenderer: {fileID: 5064785936193573449}
   _durability: 5
+--- !u!114 &4890568551692378042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7228411537709952860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 912b00742be465c4d950c58b5d3111bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _objectWithMaterial: {fileID: 6427673694779088755}
+  _materialsColors: {fileID: 11400000, guid: 6638cb3dd403e0a4fb796452bd63a7e6, type: 2}
+--- !u!136 &-5839700155422218735
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7228411537709952860}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.2
+  m_Height: 1.7033191
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.849746, z: 0}
 --- !u!1001 &5052339551693652585
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -110,5 +141,10 @@ PrefabInstance:
 --- !u!4 &5047930711990822869 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4607164402640316, guid: be3573ba2ba53ea4f8979e64874c493d, type: 3}
+  m_PrefabInstance: {fileID: 5052339551693652585}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &5064785936193573449 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 23714218359197728, guid: be3573ba2ba53ea4f8979e64874c493d, type: 3}
   m_PrefabInstance: {fileID: 5052339551693652585}
   m_PrefabAsset: {fileID: 0}

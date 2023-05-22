@@ -6,18 +6,15 @@ using System;
 
 public enum ItemMaterial {Concrete, Wood, Iron}
 
-public class Destructable : MonoBehaviour
+public class Destructable : MonoBehaviour, IImpactMaterial
 {
     public UnityEvent OnDestroy;
     [SerializeField] private ItemMaterial _material;
     [SerializeField] private Renderer _objectRenderer;
     [SerializeField] private int _durability;
-    [SerializeField] private Color _concreteColor, _ironColor, _woodColor;
 
-    private void Awake()
-    {
-        SetMaterialColor();
-    }
+
+
     public void TakeDamage(int dmg, ItemMaterial itemMaterial)
     {
         if (itemMaterial != _material) return;
@@ -34,17 +31,7 @@ public class Destructable : MonoBehaviour
         Destroy(gameObject);
     }
 
-    private void SetMaterialColor() => _objectRenderer.material.color = GetColorFromMaterial();
+    public ItemMaterial GetMaterial() => _material;
 
-    private Color GetColorFromMaterial()
-    {
-        switch (_material)
-        {
-            case ItemMaterial.Concrete: return _concreteColor;
-            case ItemMaterial.Iron: return _ironColor;
-            case ItemMaterial.Wood: return _woodColor;
-            default:
-                return Color.white;
-        }
-    }
+    public void SetRenderColorFromMaterial(Color color) => _objectRenderer.material.color = color;
 }

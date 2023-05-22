@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Weapon : MonoBehaviour
+public class Weapon : MonoBehaviour, IImpactMaterial
 {
     [SerializeField] private ItemMaterial _materialsToImpact;
     [SerializeField] private int _damage;
@@ -13,6 +13,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] Camera _mainCamera;
     [SerializeField] private LayerMask _layerMask;
     [SerializeField] Animator _animator;
+    [SerializeField] Renderer _objectRenderer;
 
     public UnityAction HideAction;
     public bool IsInTransition;
@@ -76,4 +77,8 @@ public class Weapon : MonoBehaviour
 
         return new Vector3(x, y, z);
     }
+
+    public ItemMaterial GetMaterial() => _materialsToImpact;
+
+    public void SetRenderColorFromMaterial(Color color) => _objectRenderer.material.color = color;
 }

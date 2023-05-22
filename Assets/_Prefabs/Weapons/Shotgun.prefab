@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7365829150077282513}
   - component: {fileID: -2652084742960863109}
   - component: {fileID: 8272484141859863278}
+  - component: {fileID: -5093034986632363893}
   m_Layer: 3
   m_Name: Shotgun
   m_TagString: Untagged
@@ -57,6 +58,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   _animator: {fileID: 8272484141859863278}
+  _objectRenderer: {fileID: 4683491736996041868}
   IsInTransition: 0
 --- !u!95 &8272484141859863278
 Animator:
@@ -79,6 +81,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-5093034986632363893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5613122962516295080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 912b00742be465c4d950c58b5d3111bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _objectWithMaterial: {fileID: -2652084742960863109}
+  _materialsColors: {fileID: 11400000, guid: 6638cb3dd403e0a4fb796452bd63a7e6, type: 2}
 --- !u!1001 &6286619679968643080
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -152,6 +168,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b36fb41929fc22429f0083d817b8040, type: 3}
+--- !u!23 &4683491736996041868 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: 8b36fb41929fc22429f0083d817b8040, type: 3}
+  m_PrefabInstance: {fileID: 6286619679968643080}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5815332628697427939 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8b36fb41929fc22429f0083d817b8040, type: 3}
