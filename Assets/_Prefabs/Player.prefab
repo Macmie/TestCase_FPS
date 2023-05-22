@@ -745,10 +745,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rifle
       objectReference: {fileID: 0}
-    - target: {fileID: 2634490486755525743, guid: e9e1900d50fec7642b1a07d9c64e9e0d, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5664305607542384383, guid: e9e1900d50fec7642b1a07d9c64e9e0d, type: 3}
       propertyPath: m_RootOrder
       value: 1

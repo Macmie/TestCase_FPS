@@ -27,6 +27,7 @@ public class Weapon : MonoBehaviour
 
     private void OnHidden()
     {
+        Debug.Log($"Hiding {gameObject.name}");
         gameObject.SetActive(false);
     }
 
@@ -38,7 +39,7 @@ public class Weapon : MonoBehaviour
     public void HideGun()
     {
         _animator.SetTrigger("Hide");
-        Debug.Log("Start Gun Hiding");
+        Debug.Log($"Start Hiding {gameObject.name}");
     }
 
     public void Shoot(bool shoot)
