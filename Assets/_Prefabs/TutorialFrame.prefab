@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 241954025}
   - component: {fileID: 241954026}
+  - component: {fileID: 1368682494948794034}
   m_Layer: 0
   m_Name: Trigger
   m_TagString: Untagged
@@ -50,6 +51,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 6.987947, y: 5, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1368682494948794034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 241954024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cbaf8828c1f90b42bdaafc295769e83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _tutorialFrame: {fileID: 1340984169895797712}
 --- !u!1 &9175688838014635934
 GameObject:
   m_ObjectHideFlags: 0
@@ -184,7 +198,7 @@ MonoBehaviour:
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
-  m_fontSizeMin: 18
+  m_fontSizeMin: 15
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 2
@@ -216,7 +230,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -0.0033659935, y: -4.6511354, z: 0.052990913, w: 0}
+  m_margin: {x: -0.0033659935, y: -4.6511354, z: 0.052990913, w: 5.6460233}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   _SortingLayer: 0
@@ -255,4 +269,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _tutorialText: {fileID: 10173098873228962}
   _nextFrame: {fileID: 0}
-  _fadeSpeed: 1
+  _fadeSpeed: 0.8
