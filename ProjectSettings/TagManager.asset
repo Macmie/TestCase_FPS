@@ -8,6 +8,7 @@ TagManager:
   - ExplosiveBarrel
   - Target
   - Metal
+  - Tutorial
   layers:
   - Default
   - TransparentFX
