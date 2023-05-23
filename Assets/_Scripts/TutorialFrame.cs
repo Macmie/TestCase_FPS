@@ -48,7 +48,6 @@ public class TutorialFrame : MonoBehaviour
             _tutorialText.alpha -= _fadeSpeed / 100;
             yield return null;
         }
-
         Destroy(gameObject);
     }
 
@@ -59,7 +58,6 @@ public class TutorialFrame : MonoBehaviour
             _tutorialText.alpha += _fadeSpeed / 100;
             yield return null;
         }
-
         _tutorialText.alpha = 1f;
     }
 }

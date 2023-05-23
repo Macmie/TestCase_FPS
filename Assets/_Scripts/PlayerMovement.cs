@@ -18,15 +18,12 @@ public class PlayerMovement : MonoBehaviour
 
     public void Look(Vector2 lookVector) => _lookVector = lookVector;
 
+    public void SetIfGrounded(bool isGrounded) => _isGrounded = isGrounded;
+
     public void Jump(InputAction.CallbackContext context)
     {
         if (context.phase == InputActionPhase.Started && _isGrounded)
-        Jump();
-    }
-
-    public void SetIfGrounded(bool isGrounded)
-    {
-        _isGrounded = isGrounded;
+            Jump();
     }
 
     private void FixedUpdate()

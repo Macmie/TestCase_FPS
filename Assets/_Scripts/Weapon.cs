@@ -31,7 +31,6 @@ public class Weapon : MonoBehaviour, IImpactMaterial
     {
         if (!shoot || IsInTransition) return;
 
-        Debug.Log($"Shoot {gameObject.name}, is in transition: {IsInTransition}");
         _burstEffect.Play();
 
         //To delete if not using spread

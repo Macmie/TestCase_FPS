@@ -19,11 +19,10 @@ public class PlayerWeaponSelector : MonoBehaviour
     public void ChangeWeaponByIndex(int index)
     {
         if (index == _activeWeaponIndex || _isChanging) return;
+
         if (index < 0 || index >= _weaponList.Count)
-        {
-            Debug.LogError("Weapon index outside the weapon array bounds!");
             return;
-        }
+
         StartCoroutine(SetWeapon(index));
     }
 
