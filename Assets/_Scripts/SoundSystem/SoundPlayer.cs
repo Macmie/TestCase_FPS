@@ -49,7 +49,6 @@ public class SoundPlayer : MonoBehaviour
 
     private void PlayWalkingSounds()
     {
-        Debug.Log("Step");
         _footstepsSource.clip = GetAudioClip(_footsteps);
         _footstepsSource.Play();
         _timeToNextStep = _timeBetweenSteps;
