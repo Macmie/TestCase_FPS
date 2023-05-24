@@ -15,7 +15,9 @@ public class Weapon : MonoBehaviour, IImpactMaterial
     [SerializeField] Animator _animator;
     [SerializeField] Renderer _objectRenderer;
 
-    public UnityAction HideAction;
+    public UnityEvent HideAction;
+    public UnityEvent OnShoot;
+
     public bool IsInTransition;
     private int _mask;
 
@@ -32,6 +34,7 @@ public class Weapon : MonoBehaviour, IImpactMaterial
         if (!shoot || IsInTransition) return;
 
         _burstEffect.Play();
+        OnShoot?.Invoke();
 
         //To delete if not using spread
         Vector3 spread = GetSpread();

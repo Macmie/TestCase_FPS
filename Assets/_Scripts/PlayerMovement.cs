@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
@@ -8,6 +9,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Rigidbody _rb;
     [SerializeField] private GameObject _cameraHolder;
     [SerializeField] private float _speed, _sensivity, _maxForce, _maxYLookAngle, _jumpForce;
+
+    public UnityEvent OnJumped;
+    public UnityEvent OnLanded;
 
     private Vector2 _movementVector = new Vector2();
     private Vector2 _lookVector = new Vector2();
@@ -18,7 +22,11 @@ public class PlayerMovement : MonoBehaviour
 
     public void Look(Vector2 lookVector) => _lookVector = lookVector;
 
-    public void SetIfGrounded(bool isGrounded) => _isGrounded = isGrounded;
+    public void SetIfGrounded(bool isGrounded)
+    {
+        HandleJumpLandEvents(isGrounded);
+        _isGrounded = isGrounded;
+    }
 
     public void Jump(InputAction.CallbackContext context)
     {
@@ -65,5 +73,16 @@ public class PlayerMovement : MonoBehaviour
     {
         _rb.AddForce(Vector3.up * _jumpForce, ForceMode.Impulse);
         SetIfGrounded(false);
+    }
+    
+    private void HandleJumpLandEvents(bool isGrounded)
+    {
+        bool landed = !_isGrounded && isGrounded;
+        bool jumped = _isGrounded && !isGrounded;
+
+        if (landed)
+            OnLanded?.Invoke();
+        if (jumped)
+            OnJumped?.Invoke();
     }
 }
