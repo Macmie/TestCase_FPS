@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
 
     public void OnJump(InputAction.CallbackContext context) => _playerMovement.Jump(context);
 
-    public void OnShoot(InputAction.CallbackContext context) => _playerShooting.Shoot(context.phase == InputActionPhase.Performed);
+    public void OnShoot(InputAction.CallbackContext context) => _playerShooting.Shoot(context.phase == InputActionPhase.Started);
 
     public void OnFirstWeaponChoose(InputAction.CallbackContext context) => _playerWeaponSelector.ChangeWeaponByIndex(0);
 

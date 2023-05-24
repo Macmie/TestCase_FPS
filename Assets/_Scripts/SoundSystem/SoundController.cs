@@ -15,7 +15,9 @@ public class SoundController : MonoBehaviour
     public void OnWalkingStateChange(InputAction.CallbackContext context) => HandleWalkingSounds(context);
 
     public void PistolShot() => OnPistolShot?.Invoke();
+
     public void RifleShot() => OnRifleShot?.Invoke();
+
     public void ShotgunShot() => OnShotgunShot?.Invoke();
 
     private void HandleWalkingSounds(InputAction.CallbackContext context)
