@@ -34,6 +34,8 @@ public class PlayerMovement : MonoBehaviour
             Jump();
     }
 
+    public void DisableMovement() => _rb.velocity = Vector3.zero;
+
     private void FixedUpdate()
     {
         ProcessMovement();
@@ -73,6 +75,7 @@ public class PlayerMovement : MonoBehaviour
     {
         _rb.AddForce(Vector3.up * _jumpForce, ForceMode.Impulse);
         SetIfGrounded(false);
+        Debug.Log("Jump");
     }
     
     private void HandleJumpLandEvents(bool isGrounded)

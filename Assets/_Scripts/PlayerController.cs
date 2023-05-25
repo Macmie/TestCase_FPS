@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     public void OnMove(InputAction.CallbackContext context) => _playerMovement.Move(context.ReadValue<Vector2>());
@@ -31,4 +32,13 @@ public class PlayerController : MonoBehaviour
     public void ChangeToNextWeapon(InputAction.CallbackContext context) => _playerWeaponSelector.ChangeWeapon(true);
 
     public void ChangeToPreviousWeapon(InputAction.CallbackContext context) => _playerWeaponSelector.ChangeWeapon(false);
+
+    public void DisableAllInput()
+    {
+        _playerMovement.DisableMovement();
+        _playerMovement.enabled = false;
+        _playerShooting.enabled = false;
+        _playerWeaponSelector.enabled = false;
+        this.enabled = false;
+    }
 }

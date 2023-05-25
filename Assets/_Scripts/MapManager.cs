@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class MapManager : MonoBehaviour
 {
-    [SerializeField] CanvasGroup _winnerCanvas;
     [SerializeField] Transform _enemiesRoot;
+
+    public UnityEvent OnMissionComplete;
 
     private int _objectsToDestroy;
 
@@ -25,11 +28,18 @@ public class MapManager : MonoBehaviour
     {
         _objectsToDestroy--;
         if (_objectsToDestroy <= 0)
-            GameOver();
+            OnMissionComplete?.Invoke();
     }
 
-    private void GameOver()
+    public void ReloadMap() => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
+    public void ExitTheGame()
     {
-        Debug.Log("Game Over");
+#if UNITY_EDITOR
+        Debug.Log("Game turned off. Have a nice evening");
+
+#else
+        Application.Quit();
+#endif
     }
 }
