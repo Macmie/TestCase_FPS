@@ -1,7 +1,3 @@
-
-
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class RequireInterfaceAttribute : PropertyAttribute
@@ -16,3 +12,4 @@ public class RequireInterfaceAttribute : PropertyAttribute
         this.requiredType = type;
     }
 }
+
